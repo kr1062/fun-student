@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student.ui.controller.MainController">
+    <top>
+        <VBox>
+            <HBox spacing="20.0" style="-fx-padding: 20; -fx-background-color: transparent;" alignment="CENTER_LEFT">
+                <VBox styleClass="card" prefWidth="200">
+                    <Label text="Всего студентов" styleClass="stat-title" />
+                    <Label fx:id="totalStudentsLabel" text="0" styleClass="stat-value" />
+                </VBox>
+                <VBox styleClass="card" prefWidth="200">
+                    <Label text="Ваша роль" styleClass="stat-title" />
+                    <Label fx:id="roleLabel" text="-" styleClass="stat-value" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+
+            <HBox spacing="10.0" style="-fx-padding: 0 20 10 20;" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="🔍 Поиск по имени или фамилии..." HBox.hgrow="ALWAYS" />
+                <Button onAction="#handleAdd" text="➕ Добавить" fx:id="addBtn" styleClass="button-success" />
+                <Button onAction="#handleEdit" text="✏️ Изменить" fx:id="editBtn" style="-fx-background-color: #f59e0b;" />
+                <Button onAction="#handleDelete" text="🗑️ Удалить" fx:id="deleteBtn" styleClass="button-danger" />
+                <Button onAction="#handleManageUsers" text="👥 Пользователи" fx:id="usersBtn" style="-fx-background-color: #8b5cf6;" />
+                <Button onAction="#loadStudents" text="🔄 Обновить" />
+                <Button onAction="#handleLogout" text="🚪 Выйти" styleClass="button-secondary" />
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="studentTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="75.0" />
+                <TableColumn fx:id="nameColumn" text="Имя" prefWidth="150.0" />
+                <TableColumn fx:id="surnameColumn" text="Фамилия" prefWidth="150.0" />
+                <TableColumn fx:id="phoneColumn" text="Телефон" prefWidth="150.0" />
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="200.0" />
+            </columns>
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="0.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>

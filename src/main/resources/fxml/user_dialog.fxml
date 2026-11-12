@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.student.ui.controller.UserDialogController" style="-fx-background-color: white;">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <VBox spacing="5.0">
+        <Label text="Email" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;" />
+        <TextField fx:id="emailField" promptText="newuser@example.com" />
+    </VBox>
+
+    <VBox spacing="5.0">
+        <Label text="Пароль" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;" />
+        <PasswordField fx:id="passwordField" promptText="Пароль" />
+    </VBox>
+
+    <VBox spacing="5.0">
+        <Label text="Роль" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;" />
+        <ComboBox fx:id="roleComboBox" maxWidth="Infinity" />
+    </VBox>
+
+    <Label fx:id="errorLabel" styleClass="error-label" visible="false" />
+
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button text="Отмена" onAction="#handleCancel" style="-fx-background-color: #9ca3af;" />
+        <Button text="Создать" onAction="#handleSave" />
+    </HBox>
+</VBox>
